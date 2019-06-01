@@ -17,12 +17,14 @@ public class TicketService {
     private TicketDAO ticketDAO;
     private TicketOrderDAO ticketOrderDAO;
     private UserService userService;
+    private ObserverService observerService;
 
     @Autowired
-    public TicketService(TicketDAO ticketDAO, TicketOrderDAO ticketOrderDAO, UserService userService) {
+    public TicketService(TicketDAO ticketDAO, TicketOrderDAO ticketOrderDAO, UserService userService, ObserverService observerService) {
         this.ticketDAO = ticketDAO;
         this.ticketOrderDAO = ticketOrderDAO;
         this.userService = userService;
+        this.observerService = observerService;
     }
 
     public void addTicket(Ticket ticket) {
@@ -37,5 +39,6 @@ public class TicketService {
         Ticket ticket = ticketDAO.selectById(id);
         User user = userService.selectUserByEmail(email);
         ticketOrderDAO.insert(new TicketOrder(user, ticket));
+        observerService.notifyObserver(email, ticket);
     }
 }
