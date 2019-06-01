@@ -12,6 +12,7 @@ public class Ticket {
     @Column(name = "ticket_type")
     private String ticketType;
 
+
     public Ticket() {
 
     }

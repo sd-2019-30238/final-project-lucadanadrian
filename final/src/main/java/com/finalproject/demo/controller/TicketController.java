@@ -26,4 +26,11 @@ public class TicketController {
         return modelAndView;
     }
 
+    @GetMapping("/tickets")
+    public ModelAndView displayTicketsPage(){
+        ModelAndView modelAndView = new ModelAndView("ticketsPage");
+        modelAndView.addObject("tickets", ticketService.displayTickets());
+        return modelAndView;
+    }
+
 }
