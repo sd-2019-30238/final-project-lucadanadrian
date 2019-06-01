@@ -1,6 +1,8 @@
 package com.finalproject.demo.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -19,7 +21,10 @@ public class User {
     @Column(name = "user_pass", nullable = false)
     private String password;
 
-    public User(){
+    @OneToMany(mappedBy = "user")
+    private List<TicketOrder> ticketOrders = new ArrayList<>();
+
+    public User() {
     }
 
     public User(String email, String firstName, String lastName, String password) {
@@ -27,6 +32,14 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
+    }
+
+    public List<TicketOrder> getTicketOrders() {
+        return ticketOrders;
+    }
+
+    public void setTicketOrders(List<TicketOrder> ticketOrders) {
+        this.ticketOrders = ticketOrders;
     }
 
     public String getEmail() {

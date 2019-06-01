@@ -5,40 +5,42 @@
     <title>All Tickets</title>
 </head>
 <body>
-<h2 align="center">Books</h2>
+<h2 align="center">Tickets</h2>
 <table align="center" border="1">
     <tr bgcolor="#ff7f50">
         <td>Id</td>
         <td>Title</td>
+        <td>Price</td>
     </tr>
     <tr th:each="ticket : ${tickets}">
         <td th:text="${ticket.id}"></td>
         <td th:text="${ticket.ticketType}"></td>
-<!--        <td>-->
-<!--            <form action="#" th:action="@{/booksU/{id} (id=${ticket.id})}" th:method="post">-->
-<!--                <input type="submit" value="Order">-->
-<!--            </form>-->
-<!--        </td>-->
+        <td th:text="${ticket.price}"></td>
+        <td>
+            <form action="#" th:action="@{/tickets/{id} (id=${ticket.id})}" th:method="post">
+                <input type="submit" value="Order">
+            </form>
+        </td>
     </tr>
 
 </table>
 
 
 <br>
-<!--<table th:align="center">-->
-<!--    <tr>-->
-<!--        <td>-->
-<!--            <button><a href=""></a></button>-->
-<!--        </td>-->
-<!--    </tr>-->
-<!--    <tr>-->
-<!--        <td>-->
-<!--            <form action="#" th:action="@{/logout}" th:method="post">-->
-<!--                <button th:type="submit">Logout</button>-->
-<!--            </form>-->
-<!--        </td>-->
-<!--    </tr>-->
-<!--</table>-->
+<table th:align="center">
+    <tr>
+        <td>
+            <button><a href="/ticketOrders/currentUser">History</a></button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <form action="#" th:action="@{/logout}" th:method="post">
+                <button th:type="submit">Logout</button>
+            </form>
+        </td>
+    </tr>
+</table>
 
 </body>
 </html>
