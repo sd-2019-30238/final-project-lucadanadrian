@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert Ticket</title>
+</head>
+<body>
+<h2 align="center">All Tickets</h2>
+<form action="#" th:action="@{/addTicket}" th:object="${ticket}" method="post">
+
+    <table align="center">
+        <tr>
+            <td>Ticket Type:</td>
+            <td><input type="text" th:field="*{ticketType}" placeholder="Urban/Metropolitan"></td>
+        </tr>
+        <tr align="center">
+            <td></td>
+            <td><input type="submit" value="Submit"></td>
+        </tr>
+        <tr align="center">
+            <td></td>
+            <td>
+                <button type="button"><a href="">Tickets</a> </button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
