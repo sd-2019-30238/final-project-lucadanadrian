@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bus Lines</title>
+</head>
+<body>
+<h2 align="center">Bus Lines</h2>
+<table align="center" border="1">
+    <tr bgcolor="#ff7f50">
+        <td>Bus Line</td>
+        <td>Urban/Metropolitan</td>
+        <td>Stations</td>
+        <td>Information</td>
+    </tr>
+    <tr th:each="schedule : ${busSchedules}">
+        <td th:text="${schedule.line}"></td>
+        <td th:text="${schedule.trip}"></td>
+        <td th:text="${schedule.stations}"></td>
+        <td th:text="${schedule.information}"></td>
+<!--        <td>-->
+<!--            <form action="#" th:action="@{/books/{id} (id=${book.id})}" th:method="delete">-->
+<!--                <input type="hidden" name="_method" value="delete"/>-->
+<!--                <input type="submit" value="Delete">-->
+<!--            </form>-->
+<!--        </td>-->
+    </tr>
+    <!--        <tr th:each="book : ${books}">-->
+    <!--            <form action="#" th:action="@{/books/{id}(id=${book.id})}" th:method="delete">-->
+    <!--                <p align="center">Delete book with ID: <input type="text" placeholder="ID"> <input type="submit" value="Delete"> </p>-->
+    <!--            </form>-->
+    <!--        </tr>-->
+</table>
+
+<p align="center">
+    <button type="button"><a href="/busScheduleStaff">Insert Line</a></button>
+</p>
+
+</body>
+</html>

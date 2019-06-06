@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bus Lines Management</title>
+</head>
+<body>
+<br>
+<br>
+<form action="#" th:action="@{/busScheduleStaff}" th:object="${schedule}" method="post">
+
+    <table align="center">
+        <tr>
+            <td>Bus Line:</td>
+            <td><input type="text" th:field="*{line}" placeholder="Bus Line"></td>
+        </tr>
+        <tr>
+            <td>Urban/Metropolitan:</td>
+            <td><input type="text" th:field="*{trip}" placeholder="Urban/Metropolitan"></td>
+        </tr>
+        <tr>
+            <td>Stations:</td>
+            <td><input type="text" th:field="*{stations}" placeholder="Stations"></td>
+        </tr>
+        <tr>
+            <td>Information:</td>
+            <td><input type="text" th:field="*{information}" placeholder="Information"></td>
+        </tr>
+        <tr align="center">
+            <td></td>
+            <td><input type="submit" value="Submit"></td>
+        </tr>
+
+
+<!--        <tr align="center">-->
+<!--            <td></td>-->
+<!--            <td>-->
+<!--                <button type="button"><a href="/login">Log In</a></button>-->
+<!--            </td>-->
+<!--        </tr>-->
+    </table>
+
+
+    <p align="center">
+        <button type="button"><a href="/busScheduleStaff/lines">Lines</a></button>
+    </p>
+</form>
+</body>
+</html>
