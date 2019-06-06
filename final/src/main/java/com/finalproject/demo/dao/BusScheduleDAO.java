@@ -26,6 +26,14 @@ public class BusScheduleDAO {
         sessionFactory.getCurrentSession().save(busSchedule);
     }
 
+    public List<BusSchedule> selectByLine(String line){
+        return sessionFactory.getCurrentSession().createSQLQuery("Select * from busschedule where bus_line = '" + line+"'").addEntity(BusSchedule.class).list();
+    }
+
+    public List<BusSchedule> selectByType(String type){
+        return sessionFactory.getCurrentSession().createSQLQuery("Select * from busschedule where bus_trip = '" + type+"'").addEntity(BusSchedule.class).list();
+    }
+
     public void updateSchedule(BusSchedule busSchedule){
         sessionFactory.getCurrentSession().saveOrUpdate(busSchedule);
     }

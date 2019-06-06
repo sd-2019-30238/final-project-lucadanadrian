@@ -26,4 +26,12 @@ public class BusScheduleService {
         BusSchedule busSchedule = busScheduleDAO.selectById(id);
         busScheduleDAO.deleteSchedule(busSchedule);
     }
+
+    public List<BusSchedule> selectBusLine(String line){
+        return busScheduleDAO.selectByLine(line);
+    }
+
+    public List<BusSchedule> selectByType(String type){
+        return busScheduleDAO.selectByType(type);
+    }
 }

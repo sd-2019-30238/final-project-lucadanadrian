@@ -37,5 +37,14 @@
 <p th:align="center">
     <button><a href="/tickets">Back</a></button>
 </p>
+<table th:align="center">
+    <tr>
+        <td>
+            <form action="#" th:action="@{/logout}" th:method="post">
+                <button th:type="submit">Logout</button>
+            </form>
+        </td>
+    </tr>
+</table>
 </body>
 </html>

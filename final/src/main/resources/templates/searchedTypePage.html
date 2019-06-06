@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bus Stations</title>
+</head>
+<body>
+<h2 align="center">Bus Line</h2>
+<table align="center" border="1">
+    <tr bgcolor="#ff7f50">
+        <td>Line</td>
+        <td>Trip</td>
+        <td>Stations</td>
+        <td>Information</td>
+    </tr>
+    <tr th:each="type : ${types}">
+        <td th:text="${type.line}"></td>
+        <td th:text="${type.trip}"></td>
+        <td th:text="${type.stations}"></td>
+        <td th:text="${type.information}"></td>
+    </tr>
+</table>
+
+<p align="center">
+    <button type="button"><a href="/busLines">Back</a></button>
+</p>
+
+<table th:align="center">
+    <tr>
+        <td>
+            <form action="#" th:action="@{/logout}" th:method="post">
+                <button th:type="submit">Logout</button>
+            </form>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

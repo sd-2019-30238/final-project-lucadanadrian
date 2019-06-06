@@ -13,17 +13,11 @@
         <td>Stations</td>
         <td>Information</td>
     </tr>
-    <tr th:each="schedule : ${busSchedules}">
+    <tr th:each="schedule : ${schedules}">
         <td th:text="${schedule.line}"></td>
         <td th:text="${schedule.trip}"></td>
         <td th:text="${schedule.stations}"></td>
         <td th:text="${schedule.information}"></td>
-        <td>
-            <form action="#" th:action="@{/busScheduleStaff/lines/{id} (id=${schedule.id})}" th:method="delete">
-                <input type="hidden" name="_method" value="delete"/>
-                <input type="submit" value="Delete">
-            </form>
-        </td>
     </tr>
     <!--        <tr th:each="book : ${books}">-->
     <!--            <form action="#" th:action="@{/books/{id}(id=${book.id})}" th:method="delete">-->
@@ -32,8 +26,27 @@
     <!--        </tr>-->
 </table>
 
+<br>
+
+<table align="center">
+    <tr>
+        <form action="#" th:action="@{/busLines/line}" th:method="get">
+            <td> Select line:</td>
+            <td><input type="text" name="line" placeholder="Line"></td>
+            <td><input type="submit" value="Select"></td>
+        </form>
+    </tr>
+    <tr>
+        <form action="#" th:action="@{/busLines/type}" th:method="get">
+            <td>Select type:</td>
+            <td><input type="text" name="type" placeholder="Urban/Metropolitan"></td>
+            <td><input type="submit" value="Select"></td>
+        </form>
+    </tr>
+</table>
+
 <p align="center">
-    <button type="button"><a href="/busScheduleStaff">Insert Line</a></button>
+    <button type="button"><a href="/tickets">Tickets</a></button>
 </p>
 <table th:align="center">
     <tr>
@@ -44,5 +57,6 @@
         </td>
     </tr>
 </table>
+
 </body>
 </html>
