@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Code Tickets</title>
+</head>
+<body>
+<h2 align="center">Code Tickets</h2>
+<table align="center" border="1">
+    <tr bgcolor="#ff7f50">
+        <td>Id</td>
+        <td>Code</td>
+        <td>Validated</td>
+    </tr>
+    <tr th:each="code : ${codes}">
+        <td th:text="${code.getId()}"></td>
+        <td th:text="${code.getCode()}"></td>
+        <td th:text="${code.getValidated()}"></td>
+<!--        <td>-->
+<!--            <form action="#" th:action="@{/tickets/{id} (id=${ticket.id})}" th:method="post">-->
+<!--                <input type="submit" value="Order">-->
+<!--            </form>-->
+<!--        </td>-->
+    </tr>
+
+</table>
+
+
+<br>
+<table th:align="center">
+    <tr>
+        <td>
+            <form action="#" th:action="@{/logout}" th:method="post">
+                <button th:type="submit">Logout</button>
+            </form>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
