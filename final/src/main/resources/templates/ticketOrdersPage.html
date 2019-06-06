@@ -19,7 +19,12 @@
         <td th:text="${orderedTicket.user.email}"></td>
         <td th:text="${orderedTicket.ticket.ticketType}"></td>
         <td th:text="${orderedTicket.ticket.price}"></td>
-<!--        <td th:text="${book.book.price}"></td>-->
+        <td>
+            <form action="#" th:action="@{/ticketOrders/currentUser/{id} (id=${orderedTicket.id})}" th:method="delete">
+                <input type="hidden" name="_method" value="delete"/>
+                <input type="submit" value="Delete">
+            </form>
+        </td>
 <!--        <td>-->
 <!--            <form action="#" th:action="@{/booksU/return}" th:method="put">-->
 <!--                <input type="hidden" name="_method" value="put">-->

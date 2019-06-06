@@ -16,16 +16,21 @@ public class ValidationCodeDAO {
         return sessionFactory.getCurrentSession().get(ValidationCode.class, id);
     }
 
-    public ValidationCode selectByCode(String code){
-        return (ValidationCode) sessionFactory.getCurrentSession().createQuery("from " + ValidationCode.class.getName() + " u where u.code_ticket =:code").setParameter("code", code).getSingleResult();
+    public List<ValidationCode> selectByCode(String code){
+        return  sessionFactory.getCurrentSession().createSQLQuery("Select * from validationcode where code_ticket= '" + code+"'").addEntity(ValidationCode.class).list();
     }
 
     public List<ValidationCode> selectAll() {
         return (List<ValidationCode>) sessionFactory.getCurrentSession().createSQLQuery("Select * from validationcode").addEntity(ValidationCode.class).list();
     }
 
+
     public void insertTable(ValidationCode validationCode){
         sessionFactory.getCurrentSession().save(validationCode);
+    }
+
+    public void updateTable(ValidationCode validationCode){
+        sessionFactory.getCurrentSession().saveOrUpdate(validationCode);
     }
 
     public void deleteFromTable(int id){

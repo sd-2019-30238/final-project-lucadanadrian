@@ -14,12 +14,26 @@ public class ValidationCodeService {
     @Autowired
     private ValidationCodeDAO validationCodeDAO;
 
-    public List<ValidationCode> getSavedTickets(){
+    public List<ValidationCode> getSavedTickets() {
         return validationCodeDAO.selectAll();
     }
 
-    public ValidationCode selectByCode(String code){
+    public List<ValidationCode> selectByCode(String code) {
         return validationCodeDAO.selectByCode(code);
+
+    }
+
+    public void acceptTicketCode(int id) {
+        ValidationCode validationCode = validationCodeDAO.selectById(id);
+        validationCode.setValidated("Validated");
+        validationCode.equals(validationCode);
+        for(ValidationCode vc:validationCodeDAO.selectByCode(validationCode.getCode())){
+            System.out.println(vc.getId());
+        }
+    }
+
+    public void deleteTicketCode(int id) {
+        validationCodeDAO.deleteFromTable(id);
     }
 }
 

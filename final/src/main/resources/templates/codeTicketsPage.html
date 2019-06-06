@@ -17,14 +17,31 @@
         <td th:text="${code.getCode()}"></td>
         <td th:text="${code.getValidated()}"></td>
 <!--        <td>-->
-<!--            <form action="#" th:action="@{/tickets/{id} (id=${ticket.id})}" th:method="post">-->
-<!--                <input type="submit" value="Order">-->
+<!--            <form action="#" th:action="@{/ticketsToCheck/{id} (id=${code.id})}" th:method="post">-->
+<!--                <input type="submit" value="Check">-->
 <!--            </form>-->
 <!--        </td>-->
+        <td>
+            <form action="#" th:action="@{/ticketsToCheck/{id} (id=${code.id})}" th:method="delete">
+                <input type="hidden" name="_method" value="delete"/>
+                <input type="submit" value="Delete">
+            </form>
+        </td>
     </tr>
 
 </table>
 
+<br>
+
+<table align="center">
+    <tr>
+        <form action="#" th:action="@{/ticketsToCheck/oneTicket}" th:method="get">
+            <td> Select ticket with code:</td>
+            <td><input type="text" name="ticketCode" placeholder="Code"></td>
+            <td><input type="submit" value="Select"></td>
+        </form>
+    </tr>
+</table>
 
 <br>
 <table th:align="center">
