@@ -9,6 +9,7 @@ import com.finalproject.demo.model.ValidationCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
 import java.util.UUID;
 
 @Component
@@ -26,12 +27,13 @@ public class ObserverService {
 
     public void notifyObserver(String email, Ticket ticket) {
         UUID uuid = UUID.randomUUID();
+        Date date = new Date();
         String randomUUID = uuid.toString();
-        emailService.sendSimpleEmail(email,"Ticket","Bought a/an "+ ticket.getTicketType() +" ticket with a price of "+ ticket.getPrice() +" RON. Ticket Code is: "+ randomUUID);
+        emailService.sendSimpleEmail(email,"Ticket","Bought a/an "+ ticket.getTicketType() +" ticket with a price of "+ ticket.getPrice() +" RON at "+date.toString()+". Ticket Code is: "+ randomUUID);
         validationCodeDAO.insertTable(new ValidationCode(randomUUID,""));
     }
 
-    public void addObserver(Ticket ticket, User user){
-        ticketOrderDAO.insert(new TicketOrder(user,ticket));
-    }
+//    public void addObserver(Ticket ticket, User user){
+//        ticketOrderDAO.insert(new TicketOrder(user,ticket));
+//    }
 }

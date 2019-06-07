@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Transactional
@@ -36,9 +39,10 @@ public class TicketService {
     }
 
     public void orderTicket(int id, String email) {
+        Date date = new Date();
         Ticket ticket = ticketDAO.selectById(id);
         User user = userService.selectUserByEmail(email);
-        ticketOrderDAO.insert(new TicketOrder(user, ticket));
+        ticketOrderDAO.insert(new TicketOrder(user, ticket,date.toString()));
         observerService.notifyObserver(email, ticket);
     }
 }

@@ -13,12 +13,15 @@
         <td>Email</td>
         <td>Title</td>
         <td>Price</td>
+        <td>Date</td>
     </tr>
     <tr th:each="orderedTicket : ${orderedTickets}">
         <td th:text="${orderedTicket.id}"></td>
         <td th:text="${orderedTicket.user.email}"></td>
         <td th:text="${orderedTicket.ticket.ticketType}"></td>
         <td th:text="${orderedTicket.ticket.price}"></td>
+        <td th:text="${orderedTicket.date}"></td>
+
         <td>
             <form action="#" th:action="@{/ticketOrders/currentUser/{id} (id=${orderedTicket.id})}" th:method="delete">
                 <input type="hidden" name="_method" value="delete"/>

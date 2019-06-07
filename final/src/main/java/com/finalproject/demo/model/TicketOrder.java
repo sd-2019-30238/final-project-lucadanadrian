@@ -3,6 +3,7 @@ package com.finalproject.demo.model;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Objects;
 
 @Table
@@ -22,12 +23,24 @@ public class TicketOrder {
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     private Ticket ticket;
 
+    @Column(name="order_time")
+    private String date;
+
     public TicketOrder() {
     }
 
-    public TicketOrder(User user, Ticket ticket) {
+    public TicketOrder(User user, Ticket ticket, String date) {
         this.user = user;
         this.ticket = ticket;
+        this.date=date;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public int getId() {
